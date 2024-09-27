@@ -1,9 +1,20 @@
 import { ItemProps } from "@/types/item";
 
+function StrikedItem({ label }: { label: string }) {
+  return (
+    <del>
+      {label}
+    </del>
+  );
+}
+
 function Item({ name, isPacked } : ItemProps) {
   return (
     <li className="item">
-      {name}
+      {isPacked ? 
+        <StrikedItem label={name} /> :
+        (name)
+      }
     </li>
   );
 }
